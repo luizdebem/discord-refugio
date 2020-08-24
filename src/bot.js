@@ -30,6 +30,13 @@ client.on('message', async (message) => {
         return message.channel.send(string);
       }
 
+      if (args[0] === 'help') {
+        return message.channel
+          .send(`Comandos disponíves da roleta:\n_roleta {número de 1 a 10}\n_roleta players`);
+      }
+
+      if (!Number.isInteger(parseInt(args[0]))) return message.channel.send('Argumento inválido');
+
       const roletaValue = getRandomInt(1, 10);
 
       if (parseInt(args[0]) === parseInt(roletaValue)) {

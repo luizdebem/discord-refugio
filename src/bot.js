@@ -24,7 +24,7 @@ client.on('message', async (message) => {
 
         players.sort((a, b) => a - b)
           .forEach((player, index) => {
-            string += `\n[${index + 1}] ${player.username}: ${player.streak} streak`
+            string += `\n[${index + 1}] ${player.username}, streak atual: ${player.streak}`
           });
 
         return message.channel.send(string);
@@ -65,6 +65,6 @@ function playerHandler(username, success) {
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
-  max = Math.floor(max);
+  max = Math.floor(max) + 1;
   return Math.floor(Math.random() * (max - min)) + min;
 }

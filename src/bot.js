@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { Client } = require('discord.js');
-const startCron = require('./cron');
+const cronJobManager = require('./cron');
 
 const client = new Client();
 client.login(process.env.BOT_TOKEN);
@@ -11,7 +11,7 @@ let players = [];
 
 client.on('ready', () => {
   console.log(`Bot is online!`);
-  startCron();
+  cronJobManager(client);
 });
 
 client.on('message', async (message) => {

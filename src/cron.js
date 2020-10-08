@@ -6,7 +6,8 @@ function cronJobManager(client) {
   const cron = new CronJob(
     '00 00 * * *',
     () => {
-      client.channels.cache.get(channelID).send('@everyone Horário oficial do óleo de macaco');
+      // Todo anexar imagem
+      client.channels.cache.get(channelID).send('Horário oficial do óleo de macaco');
     },
     null,
     true,

@@ -9,8 +9,12 @@ const PREFIX = process.env.PREFIX;
 
 const helpMessage = `Comandos disponíves:\n_roleta {número de 1 a 5}\n_roleta players\n_help`;
 
-client.on('ready', () => {
+client.on('ready', async () => {
   console.log(`Bot is online!`);
+  client.user.setPresence({
+    activity: { name: 'roleta | _help', type: 'PLAYING' },
+    status: 'online'
+  });
   cronJobManager(client);
 });
 
